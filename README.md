@@ -3,7 +3,7 @@
 Find job after this pandemic, especially for blue-collared jobs
 
 ## Job-search IN ACTION
-  [e-Poller!](https://epoller-app.herokuapp.com/)
+  [Job Finderr!](https://job-finderr.herokuapp.com/)
 
 ### SET UP HEROKU POSTGRES DATABASE
 If you are not familiar with heroku , follow these steps:
