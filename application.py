@@ -33,7 +33,8 @@ def index():
 @jobfinder.route("/findjob/<category>")
 def findjob(category):
     jobs = db.execute("SELECT * FROM jobs WHERE job_category = :category",{'category': str(category)}).fetchall()
-    return render_template("findjob.html",jobs=jobs,category=category)
+    count_category = len(jobs)
+    return render_template("findjob.html",jobs=jobs,category=category,count_category=count_category)
 
 #POST JOB
 @jobfinder.route("/postjob",methods=['GET','POST'])
