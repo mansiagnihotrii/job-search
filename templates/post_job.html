@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %} POST JOB {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/fontawesome-all.min.css">
+{% endblock head %}
+{% block content%}
+
+<div class="whole-wrap">
+  <div class="container box_1170">
+    <div class="section-top-border">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          {% if message %}
+          <div class="alert alert-primary"> {{message}}</div>
+          {%endif%}
+          <h3 class="mb-30" >Post A Job</h3>
+          <form action="{{ url_for ('postjob') }}" method="post" align="center">
+            <div class="mt-10">
+              <input type="text" name="jobname" placeholder="Job Name"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Job Name'" required
+                class="single-input">
+            </div>
+            <div class="mt-10">
+              <input type="text" name="companyname" placeholder="Company"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Company'" required
+                class="single-input">
+            </div>
+            <div class="mt-10">
+              <input type="text" name="ctc" placeholder="CTC"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'CTC'" required
+                class="single-input">
+            </div>
+            <div class="input-group-icon mt-10">
+              <div class="icon"><i class="fa fa-list" aria-hidden="true"></i></div>
+              <div class="form-select" id="default-select">
+                <select name = "category" required>
+                  {% for job in category%}
+                  <option value = "{{job["job_category"]}}">{{job["job_category"]}}</option>
+                  {% endfor %}
+
+                </select>
+              </div>
+            </div>
+            <div class="mt-10">
+              <input type="text" name="phone" placeholder="Phone"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" required
+                class="single-input">
+            </div>
+            <div class="input-group-icon mt-10">
+              <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+              <div class="form-select" id="default-select">
+                <input type="text" name="city" placeholder="City" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'City'" required class="single-input">
+              </div>
+            </div>
+            <div class="input-group-icon mt-10">
+              <div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
+              <div class="form-select" id="default-select">
+                <input type="text" name="country" placeholder="Country" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Country'" required class="single-input">
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <textarea name = "description" class="single-textarea" placeholder="Job description" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Job description'" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Post Job</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+        {% endblock content%}
